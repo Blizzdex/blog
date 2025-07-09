@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-server
+  template:
+    metadata:
+      labels:
+        app: blog-server
+    spec:
+      containers:
+      - name: blog-server
+        image: blizzdex/bmorel_blog:latest
+        ports:
+        - containerPort: 80
